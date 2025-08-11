@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - School Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="admindashboard.css">
+    
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- User Profile Section -->
+            <div class="user-profile">
+                <div class="avatar" id="avatarContainer">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <div class="user-info">
+                    <h3 id="userName">Admin</h3>
+                    <div class="user-role">Administrator</div>
+                </div>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <div class="menu-label">Navigation</div>
+            <ul class="nav-menu">
+                <li class="nav-item active" data-section="dashboard" data-page="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span class="nav-text">Dashboard</span>
+                </li>
+                <li class="nav-item" data-section="users" data-page="users">
+                    <i class="fas fa-users"></i>
+                    <span class="nav-text">Manage Users</span>
+                </li>
+                <li class="nav-item" data-section="courses" data-page="courses">
+                    <i class="fas fa-book"></i>
+                    <span class="nav-text">Course Management</span>
+                </li>
+                <li class="nav-item" data-section="enrollment" data-page="enrollment">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span class="nav-text">Enrollment Overview</span>
+                </li>
+                <li class="nav-item" data-section="announcements" data-page="announcements">
+                    <i class="fas fa-bullhorn"></i>
+                    <span class="nav-text">Announcements</span>
+                </li>
+                <li class="nav-item" data-section="reports" data-page="reports">
+                    <i class="fas fa-chart-bar"></i>
+                    <span class="nav-text">Reports & Analytics</span>
+                </li>
+                <li class="nav-item" data-section="messages" data-page="messages">
+                    <i class="fas fa-envelope"></i>
+                    <span class="nav-text">Messages</span>
+                </li>
+            </ul>
+            
+            <!-- Account Section -->
+            <div class="menu-label">Account</div>
+            <ul class="nav-menu">
+                <li class="nav-item" data-section="profile" data-page="profile">
+                    <i class="fas fa-user"></i>
+                    <span class="nav-text">Profile</span>
+                </li>
+                <li class="nav-item" data-section="settings" data-page="settings">
+                    <i class="fas fa-cog"></i>
+                    <span class="nav-text">Settings</span>
+                </li>
+            </ul>
+            
+            <!-- Sidebar Footer -->
+            <div class="sidebar-footer">
+                <div class="mode-toggle">
+                    <label>Dark Mode</label>
+                    <label class="switch">
+                        <input type="checkbox" id="darkModeToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <button class="logout-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="logout-text">Logout</span>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Header -->
+            <header>
+                <div class="welcome-message">Welcome, Admin</div>
+                <div class="header-actions">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="search-input" placeholder="Search...">
+                    </div>
+                    <div class="notification-icon" id="notificationIcon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Dashboard Content -->
+            <div class="content-section active" id="dashboard">
+                <div class="dashboard-grid">
+                    <div class="dashboard-card" data-action="users">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <div class="card-icon blue">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                Total Users
+                            </h3>
+                            <div class="card-options">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p>View breakdown of all registered students, faculty, and admins. Monitor user growth and manage account statuses.</p>
+                        </div>
+                        <div class="card-more">
+                            View Details <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card" data-action="activities">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <div class="card-icon green">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                System Activities
+                            </h3>
+                            <div class="card-options">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p>Track logins, enrollments, grading, and general system activity. Monitor platform usage and performance metrics.</p>
+                        </div>
+                        <div class="card-more">
+                            View Activities <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card" data-action="approvals">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <div class="card-icon orange">
+                                    <i class="fas fa-clipboard-check"></i>
+                                </div>
+                                Pending Approvals
+                            </h3>
+                            <div class="card-options">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p>Review and approve pending student or faculty registrations. Manage course enrollment requests and system permissions.</p>
+                        </div>
+                        <div class="card-more">
+                            Review Pending <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card" data-action="reports">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <div class="card-icon purple">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                Generate Reports
+                            </h3>
+                            <div class="card-options">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p>Generate downloadable reports for academic records, attendance, financial data, and system analytics.</p>
+                        </div>
+                        <div class="card-more">
+                            Generate Report <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card" data-action="announcements">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <div class="card-icon red">
+                                    <i class="fas fa-bullhorn"></i>
+                                </div>
+                                Manage Announcements
+                            </h3>
+                            <div class="card-options">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p>Post, edit, or remove system-wide announcements. Schedule important notifications for students and faculty.</p>
+                        </div>
+                        <div class="card-more">
+                            Manage Posts <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card" data-action="notifications">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <div class="card-icon teal">
+                                    <i class="fas fa-bell"></i>
+                                </div>
+                                System Notifications
+                            </h3>
+                            <div class="card-options">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p>View technical alerts, maintenance logs, security warnings, and system health notifications.</p>
+                        </div>
+                        <div class="card-more">
+                            View Alerts <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Users Management Content -->
+            <div class="content-section" id="users">
+                <div class="users-container">
+                    <div class="users-header">
+                        <div class="header-left">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h2>User Management</h2>
+                                <div class="user-stats">
+                                    <div class="stat-item">
+                                        <i class="fas fa-user-graduate"></i>
+                                        <span id="students-count">0 Students</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <i class="fas fa-chalkboard-teacher"></i>
+                                        <span id="faculty-count">0 Faculty</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <i class="fas fa-user-shield"></i>
+                                        <span id="admins-count">0 Admins</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header-actions">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-plus"></i>
+                                Add User
+                            </button>
+                            <button class="btn btn-secondary">
+                                <i class="fas fa-download"></i>
+                                Export
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="user-filters">
+                        <div class="filter-buttons">
+                            <button class="filter-btn active" data-filter="all">All Users</button>
+                            <button class="filter-btn" data-filter="students">Students</button>
+                            <button class="filter-btn" data-filter="faculty">Faculty</button>
+                            <button class="filter-btn" data-filter="admins">Admins</button>
+                        </div>
+                        <div class="search-container">
+                            <i class="fas fa-search"></i>
+                            <input type="text" class="search-input" placeholder="Search users..." id="user-search">
+                        </div>
+                    </div>
+
+                    <div class="users-list" id="users-list">
+                        <div class="no-users" id="no-users">
+                            <i class="fas fa-users"></i>
+                            <h3>No Users Found</h3>
+                            <p>No users found matching your criteria.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Course Management Content -->
+            <div class="content-section" id="courses">
+                <h2>Course Management</h2>
+                <p>Manage courses, subjects, and academic programs offered by the institution.</p>
+            </div>
+            
+            <!-- Enrollment Overview Content -->
+            <div class="content-section" id="enrollment">
+                <h2>Enrollment Overview</h2>
+                <p>Monitor student enrollment statistics and trends across all programs.</p>
+            </div>
+            
+            <!-- Announcements Content -->
+            <div class="content-section" id="announcements">
+                <h2>Announcements</h2>
+                <p>Create, manage, and schedule system-wide announcements for all users.</p>
+            </div>
+            
+            <!-- Reports & Analytics Content -->
+            <div class="content-section" id="reports">
+                <h2>Reports & Analytics</h2>
+                <p>Generate comprehensive reports and view system analytics and insights.</p>
+            </div>
+            
+            <!-- Messages Content -->
+            <div class="content-section" id="messages">
+                <div class="chat-container">
+        <!-- Left Sidebar - Contacts -->
+        <div class="contacts-panel">
+            <div class="contacts-header">
+                <h3>Messages</h3>
+                <button class="new-chat-btn" onclick="openNewChatModal()">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+            
+            <div class="search-section">
+                <div class="search-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="search-input" placeholder="Search contacts..." oninput="filterContacts(this.value)">
+                </div>
+                <div class="role-filters">
+                    <button class="role-tag active" onclick="filterByRole('all')">All</button>
+                    <button class="role-tag" onclick="filterByRole('student')">Students</button>
+                    <button class="role-tag" onclick="filterByRole('admin')">Admin</button>
+                    <button class="role-tag" onclick="filterByRole('faculty')">Faculty</button>
+                </div>
+            </div>
+            
+            <div class="contacts-list" id="contactsList">
+                <!-- Contacts will be populated here -->
+            </div>
+        </div>
+
+        <!-- Right Panel - Chat -->
+        <div class="chat-panel">
+            <div class="empty-chat" id="emptyChat">
+                <i class="fas fa-comments"></i>
+                <h3>Welcome to Academic Chat</h3>
+                <p>Select a contact from the left panel to start a conversation with faculty, administrators, or students.</p>
+            </div>
+            
+            <div class="chat-header" id="chatHeader" style="display: none;">
+                <button class="mobile-back-btn" onclick="closeMobileChat()">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="chat-user-info">
+                    <div class="chat-avatar" id="chatAvatar">
+                        JD
+                        <div class="online-indicator"></div>
+                    </div>
+                    <div class="chat-user-details">
+                        <h4 id="chatUserName">John Doe</h4>
+                        <p id="chatUserRole">Student • Computer Science</p>
+                    </div>
+                </div>
+                <div class="chat-actions">
+                    <button class="chat-action-btn" onclick="toggleChatInfo()">
+                        <i class="fas fa-info-circle"></i>
+                    </button>
+                    <button class="chat-action-btn" onclick="archiveChat()">
+                        <i class="fas fa-archive"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages" style="display: none;">
+                <!-- Messages will be populated here -->
+            </div>
+            
+            <div class="chat-input-container" id="chatInputContainer" style="display: none;">
+                <div class="chat-input-wrapper">
+                    <textarea class="chat-input" id="messageInput" placeholder="Type a message..." rows="1" onkeypress="handleKeyPress(event)" oninput="autoResize(this)"></textarea>
+                    <div class="input-actions">
+                        <button class="input-action-btn" onclick="attachFile()">
+                            <i class="fas fa-paperclip"></i>
+                        </button>
+                        <button class="input-action-btn send-btn" onclick="sendMessage()">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Chat Modal -->
+    <div id="newChatModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Start New Conversation</h3>
+                <button class="close" onclick="closeNewChatModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input type="text" class="gmail-search" id="gmailSearch" placeholder="Search by Gmail address..." oninput="searchGmail(this.value)">
+                <div class="search-results" id="searchResults">
+                    <div class="no-results">Start typing to search for users...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+            </div>
+            
+            <!-- Profile Content -->
+            <div class="content-section" id="profile">
+                <h2>Profile</h2>
+                <p>Manage your personal information and account settings.</p>
+            </div>
+            
+            <!-- Settings Content -->
+            <div class="content-section" id="settings">
+                <h2>Settings</h2>
+                <p>Configure system settings and preferences.</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        
+        // Navigation functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const navItems = document.querySelectorAll('.nav-item');
+    const contentSections = document.querySelectorAll('.content-section');
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.getElementById('mainContent');
+
+    // Initialize image upload functionality
+    initializeImageUpload();
+
+    // Navigation switching (Enhanced with merged functionality)
+    navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Handle submenu toggle
+            if (item.classList.contains('has-submenu')) {
+                const submenuId = item.getAttribute('data-submenu') + '-submenu';
+                const submenu = document.getElementById(submenuId);
+                
+                if (submenu) {
+                    item.classList.toggle('open');
+                    submenu.classList.toggle('show');
+                }
+                return;
+            }
+            
+            const targetSection = this.getAttribute('data-section');
+            const page = this.getAttribute('data-page');
+            
+            // Remove active class from all nav items
+            navItems.forEach(nav => nav.classList.remove('active'));
+            
+            // Add active class to clicked item
+            this.classList.add('active');
+            
+            // Hide all content sections
+            contentSections.forEach(section => section.classList.remove('active'));
+            
+            // Show target section
+            const targetElement = document.getElementById(targetSection);
+            if (targetElement) {
+                targetElement.classList.add('active');
+            }
+            
+            // Log page navigation
+            if (page) {
+                console.log(`Navigate to: ${page}`);
+            }
+        });
+    });
+
+    // Enhanced sidebar toggle functionality
+    sidebarToggle.addEventListener('click', function() {
+        sidebar.classList.toggle('collapsed');
+        if (mainContent) {
+            mainContent.classList.toggle('expanded');
+        }
+    });
+
+    // Mobile menu handling
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('show');
+        });
+    }
+
+    // Dashboard card click functionality (Enhanced)
+    const dashboardCards = document.querySelectorAll('.dashboard-card');
+    dashboardCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const action = this.getAttribute('data-action');
+            
+            // Handle different card actions
+            switch(action) {
+                case 'users':
+                    // Switch to users section
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    document.querySelector('[data-section="users"]').classList.add('active');
+                    contentSections.forEach(section => section.classList.remove('active'));
+                    document.getElementById('users').classList.add('active');
+                    break;
+                case 'announcements':
+                    // Switch to announcements section
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    document.querySelector('[data-section="announcements"]').classList.add('active');
+                    contentSections.forEach(section => section.classList.remove('active'));
+                    document.getElementById('announcements').classList.add('active');
+                    break;
+                case 'reports':
+                    // Switch to reports section
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    document.querySelector('[data-section="reports"]').classList.add('active');
+                    contentSections.forEach(section => section.classList.remove('active'));
+                    document.getElementById('reports').classList.add('active');
+                    break;
+                default:
+                    console.log('Card clicked:', action);
+            }
+        });
+    });
+
+    // Enhanced Dark mode toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    let isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+
+    // Apply saved dark mode preference
+    if (isDarkMode) {
+        darkModeToggle.checked = true;
+        applyDarkMode(true);
+    }
+
+    darkModeToggle.addEventListener('change', function() {
+        isDarkMode = this.checked;
+        applyDarkMode(isDarkMode);
+        
+        if (isDarkMode) {
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    });
+
+    // User filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all filter buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            filterUsers(filter);
+        });
+    });
+
+    // Search functionality
+    const searchInput = document.getElementById('user-search');
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            searchUsers(searchTerm);
+        });
+    }
+
+    // Global search functionality
+    const globalSearchInput = document.querySelector('.search-container input');
+    if (globalSearchInput) {
+        globalSearchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const searchTerm = e.target.value;
+                console.log(`Search for: ${searchTerm}`);
+                // Here you would implement search logic
+            }
+        });
+    }
+
+    // Initialize sample data
+    initializeSampleData();
+});
+
+// Image Upload Functionality
+function initializeImageUpload() {
+    // Create hidden file input for image uploads
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'image/*';
+    fileInput.style.display = 'none';
+    fileInput.id = 'imageUploadInput';
+    document.body.appendChild(fileInput);
+
+    // Add click handler to avatar container
+    const avatarContainer = document.getElementById('avatarContainer');
+    if (avatarContainer) {
+        avatarContainer.style.cursor = 'pointer';
+        avatarContainer.title = 'Click to upload profile picture';
+        
+        avatarContainer.addEventListener('click', function() {
+            fileInput.click();
+        });
+    }
+
+    // Handle file selection
+    fileInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            handleImageUpload(file);
+        }
+    });
+}
+
+function handleImageUpload(file) {
+    // Validate file type
+    const allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+    if (!allowedTypes.includes(file.type)) {
+        showNotification('Please select a valid image file (JPEG, PNG, GIF, or WebP)', 'error');
+        return;
+    }
+
+    // Validate file size (max 5MB)
+    const maxSize = 5 * 1024 * 1024; // 5MB
+    if (file.size > maxSize) {
+        showNotification('Image size must be less than 5MB', 'error');
+        return;
+    }
+
+    // Show loading indicator
+    const avatarContainer = document.getElementById('avatarContainer');
+    const originalContent = avatarContainer.innerHTML;
+    avatarContainer.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+    // Create FileReader to read the file
+    const reader = new FileReader();
+    
+    reader.onload = function(e) {
+        const imageDataUrl = e.target.result;
+        
+        // Create image element to validate dimensions
+        const img = new Image();
+        
+        img.onload = function() {
+            // Optional: Resize image if too large
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set max dimensions
+            const maxWidth = 200;
+            const maxHeight = 200;
+            
+            let { width, height } = img;
+            
+            // Calculate new dimensions
+            if (width > height) {
+                if (width > maxWidth) {
+                    height *= maxWidth / width;
+                    width = maxWidth;
+                }
+            } else {
+                if (height > maxHeight) {
+                    width *= maxHeight / height;
+                    height = maxHeight;
+                }
+            }
+            
+            canvas.width = width;
+            canvas.height = height;
+            
+            // Draw resized image
+            ctx.drawImage(img, 0, 0, width, height);
+            
+            // Get resized image data
+            const resizedImageDataUrl = canvas.toDataURL('image/jpeg', 0.8);
+            
+            // Update avatar
+            updateAvatarImage(resizedImageDataUrl);
+            
+            // Save to localStorage
+            localStorage.setItem('userAvatar', resizedImageDataUrl);
+            
+            showNotification('Profile picture updated successfully!', 'success');
+        };
+        
+        img.onerror = function() {
+            avatarContainer.innerHTML = originalContent;
+            showNotification('Error loading image. Please try again.', 'error');
+        };
+        
+        img.src = imageDataUrl;
+    };
+    
+    reader.onerror = function() {
+        avatarContainer.innerHTML = originalContent;
+        showNotification('Error reading file. Please try again.', 'error');
+    };
+    
+    reader.readAsDataURL(file);
+}
+
+function updateAvatarImage(imageDataUrl) {
+    const avatarContainer = document.getElementById('avatarContainer');
+    
+    // Create img element
+    const img = document.createElement('img');
+    img.src = imageDataUrl;
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.style.objectFit = 'cover';
+    img.style.borderRadius = '50%';
+    
+    // Clear container and add image
+    avatarContainer.innerHTML = '';
+    avatarContainer.appendChild(img);
+    
+    // Add overlay for future uploads
+    const overlay = document.createElement('div');
+    overlay.style.position = 'absolute';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0,0,0,0.3)';
+    overlay.style.borderRadius = '50%';
+    overlay.style.display = 'flex';
+    overlay.style.alignItems = 'center';
+    overlay.style.justifyContent = 'center';
+    overlay.style.opacity = '0';
+    overlay.style.transition = 'opacity 0.3s ease';
+    overlay.innerHTML = '<i class="fas fa-camera" style="color: white; font-size: 16px;"></i>';
+    
+    avatarContainer.style.position = 'relative';
+    avatarContainer.appendChild(overlay);
+    
+    // Show overlay on hover
+    avatarContainer.addEventListener('mouseenter', () => {
+        overlay.style.opacity = '1';
+    });
+    
+    avatarContainer.addEventListener('mouseleave', () => {
+        overlay.style.opacity = '0';
+    });
+}
+
+// Load saved avatar on page load
+function loadSavedAvatar() {
+    const savedAvatar = localStorage.getItem('userAvatar');
+    if (savedAvatar) {
+        updateAvatarImage(savedAvatar);
+    }
+}
+
+// Call this after DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    loadSavedAvatar();
+});
+
+// Notification system
+function showNotification(message, type = 'info') {
+    // Remove existing notifications
+    const existingNotifications = document.querySelectorAll('.custom-notification');
+    existingNotifications.forEach(notification => notification.remove());
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `custom-notification notification-${type}`;
+    
+    // Set styles
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: ${type === 'success' ? '#27ae60' : type === 'error' ? '#e74c3c' : '#3498db'};
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        z-index: 10000;
+        font-size: 14px;
+        font-weight: 500;
+        max-width: 300px;
+        word-wrap: break-word;
+        animation: slideInRight 0.3s ease-out;
+    `;
+    
+    // Add icon based on type
+    const icon = type === 'success' ? 'fa-check-circle' : 
+                 type === 'error' ? 'fa-exclamation-circle' : 
+                 'fa-info-circle';
+    
+    notification.innerHTML = `
+        <i class="fas ${icon}" style="margin-right: 8px;"></i>
+        ${message}
+    `;
+    
+    // Add animation styles
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Add to document
+    document.body.appendChild(notification);
+    
+    // Auto remove after 4 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideOutRight 0.3s ease-out';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 300);
+    }, 4000);
+    
+    // Click to dismiss
+    notification.addEventListener('click', () => {
+        notification.style.animation = 'slideOutRight 0.3s ease-out';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 300);
+    });
+}
+
+// Enhanced Dark Mode Application Function
+function applyDarkMode(isDark) {
+    if (isDark) {
+        document.body.classList.add('dark-mode');
+        document.body.style.background = '#1a1a1a';
+        
+        // Apply dark mode to top bar if exists
+        const topBar = document.querySelector('.top-bar');
+        if (topBar) {
+            topBar.style.background = '#2c2c2c';
+        }
+        
+        // Apply dark mode to dashboard cards
+        document.querySelectorAll('.dashboard-card').forEach(card => {
+            card.style.background = '#2c2c2c';
+            card.style.color = '#ffffff';
+        });
+    } else {
+        document.body.classList.remove('dark-mode');
+        document.body.style.background = '#f5f7fa';
+        
+        // Remove dark mode from top bar if exists
+        const topBar = document.querySelector('.top-bar');
+        if (topBar) {
+            topBar.style.background = 'white';
+        }
+        
+        // Remove dark mode from dashboard cards
+        document.querySelectorAll('.dashboard-card').forEach(card => {
+            card.style.background = 'white';
+            card.style.color = 'inherit';
+        });
+    }
+}
+
+// Sample data initialization
+function initializeSampleData() {
+    const sampleUsers = [
+        {
+            id: 1,
+            name: 'John Doe',
+            email: 'john.doe@school.edu',
+            role: 'student',
+            program: 'Computer Science',
+            status: 'active'
+        },
+        {
+            id: 2,
+            name: 'Jane Smith',
+            email: 'jane.smith@school.edu',
+            role: 'faculty',
+            department: 'Mathematics',
+            status: 'active'
+        },
+        {
+            id: 3,
+            name: 'Dr. Robert Johnson',
+            email: 'robert.johnson@school.edu',
+            role: 'faculty',
+            department: 'Physics',
+            status: 'active'
+        },
+        {
+            id: 4,
+            name: 'Alice Brown',
+            email: 'alice.brown@school.edu',
+            role: 'student',
+            program: 'Biology',
+            status: 'active'
+        },
+        {
+            id: 5,
+            name: 'System Administrator',
+            email: 'admin@school.edu',
+            role: 'admin',
+            department: 'IT',
+            status: 'active'
+        }
+    ];
+
+    // Store sample data
+    window.userData = sampleUsers;
+    
+    // Update counters
+    updateUserCounters();
+    
+    // Display users
+    displayUsers(sampleUsers);
+}
+
+function updateUserCounters() {
+    const students = window.userData.filter(user => user.role === 'student').length;
+    const faculty = window.userData.filter(user => user.role === 'faculty').length;
+    const admins = window.userData.filter(user => user.role === 'admin').length;
+
+    document.getElementById('students-count').textContent = `${students} Students`;
+    document.getElementById('faculty-count').textContent = `${faculty} Faculty`;
+    document.getElementById('admins-count').textContent = `${admins} Admins`;
+}
+
+function displayUsers(users) {
+    const usersList = document.getElementById('users-list');
+    const noUsersMessage = document.getElementById('no-users');
+
+    if (users.length === 0) {
+        noUsersMessage.style.display = 'block';
+        usersList.innerHTML = '';
+        usersList.appendChild(noUsersMessage);
+        return;
+    }
+
+    noUsersMessage.style.display = 'none';
+    usersList.innerHTML = '';
+
+    users.forEach(user => {
+        const userCard = createUserCard(user);
+        usersList.appendChild(userCard);
+    });
+}
+
+function createUserCard(user) {
+    const card = document.createElement('div');
+    card.className = 'user-card';
+    
+    const initials = user.name.split(' ').map(n => n[0]).join('').toUpperCase();
+    const roleIcon = getRoleIcon(user.role);
+    const roleColor = getRoleColor(user.role);
+
+    card.innerHTML = `
+        <div class="user-info">
+            <div class="user-avatar" style="background-color: ${roleColor}">
+                ${initials}
+            </div>
+            <div class="user-details">
+                <h4>${user.name}</h4>
+                <p>${roleIcon} ${user.role.charAt(0).toUpperCase() + user.role.slice(1)} • ${user.program || user.department || 'N/A'}</p>
+            </div>
+        </div>
+        <div class="user-actions">
+            <button class="action-btn btn-view" onclick="viewUser(${user.id})">
+                <i class="fas fa-eye"></i>
+            </button>
+            <button class="action-btn btn-edit" onclick="editUser(${user.id})">
+                <i class="fas fa-edit"></i>
+            </button>
+            <button class="action-btn btn-delete" onclick="deleteUser(${user.id})">
+                <i class="fas fa-trash"></i>
+            </button>
+        </div>
+    `;
+
+    return card;
+}
+
+function getRoleIcon(role) {
+    switch(role) {
+        case 'student': return '<i class="fas fa-user-graduate"></i>';
+        case 'faculty': return '<i class="fas fa-chalkboard-teacher"></i>';
+        case 'admin': return '<i class="fas fa-user-shield"></i>';
+        default: return '<i class="fas fa-user"></i>';
+    }
+}
+
+function getRoleColor(role) {
+    switch(role) {
+        case 'student': return '#3498db';
+        case 'faculty': return '#2ecc71';
+        case 'admin': return '#e74c3c';
+        default: return '#95a5a6';
+    }
+}
+
+function filterUsers(filter) {
+    let filteredUsers;
+
+    if (filter === 'all') {
+        filteredUsers = window.userData;
+    } else {
+        filteredUsers = window.userData.filter(user => user.role === filter);
+    }
+
+    displayUsers(filteredUsers);
+}
+
+function searchUsers(searchTerm) {
+    const filteredUsers = window.userData.filter(user => 
+        user.name.toLowerCase().includes(searchTerm) ||
+        user.email.toLowerCase().includes(searchTerm) ||
+        (user.program && user.program.toLowerCase().includes(searchTerm)) ||
+        (user.department && user.department.toLowerCase().includes(searchTerm))
+    );
+
+    displayUsers(filteredUsers);
+}
+
+// User action functions
+function viewUser(userId) {
+    const user = window.userData.find(u => u.id === userId);
+    showNotification(`Viewing user: ${user.name}`, 'info');
+}
+
+function editUser(userId) {
+    const user = window.userData.find(u => u.id === userId);
+    showNotification(`Editing user: ${user.name}`, 'info');
+}
+
+function deleteUser(userId) {
+    const user = window.userData.find(u => u.id === userId);
+    if (confirm(`Are you sure you want to delete ${user.name}?`)) {
+        window.userData = window.userData.filter(u => u.id !== userId);
+        updateUserCounters();
+        
+        // Re-apply current filter
+        const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+        filterUsers(activeFilter);
+        
+        showNotification(`User ${user.name} deleted successfully`, 'success');
+    }
+}
+
+// Enhanced Mobile sidebar handling
+function toggleMobileSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('open');
+}
+
+// Notification popup functionality
+const notificationBtn = document.getElementById('notificationBtn');
+const notificationPopup = document.getElementById('notificationPopup');
+
+if (notificationBtn && notificationPopup) {
+    notificationBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        notificationPopup.classList.toggle('show');
+    });
+
+    // Close notification popup when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!notificationBtn.contains(e.target) && !notificationPopup.contains(e.target)) {
+            notificationPopup.classList.remove('show');
+        }
+    });
+}
+
+// Enhanced responsive sidebar handling
+document.addEventListener('click', function(event) {
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    
+    if (window.innerWidth <= 768) {
+        if (!sidebar.contains(event.target) && 
+            !sidebarToggle.contains(event.target) && 
+            (!mobileMenuBtn || !mobileMenuBtn.contains(event.target))) {
+            sidebar.classList.remove('open', 'show');
+        }
+    }
+});
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    const sidebar = document.getElementById('sidebar');
+    if (window.innerWidth > 768) {
+        sidebar.classList.remove('show', 'open');
+    }
+});
+
+// Enhanced Notification functionality
+document.getElementById('notificationIcon').addEventListener('click', function() {
+    showNotification('Notifications:\n1. New Student Registration (5 new students)\n2. System Maintenance Tonight\n3. Grade Reports Ready', 'info');
+});
+
+// Enhanced Logout functionality with redirect
+document.addEventListener('DOMContentLoaded', function() {
+    const logoutBtn = document.querySelector('.logout-btn');
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            if (confirm('Are you sure you want to logout?')) {
+                // Clear session data if any
+                sessionStorage.clear();
+                
+                // Clear specific localStorage items but keep dark mode preference and avatar
+                const darkModePreference = localStorage.getItem('darkMode');
+                const userAvatar = localStorage.getItem('userAvatar');
+                localStorage.clear();
+                if (darkModePreference) {
+                    localStorage.setItem('darkMode', darkModePreference);
+                }
+                if (userAvatar) {
+                    localStorage.setItem('userAvatar', userAvatar);
+                }
+
+                // Show logout notification
+                showNotification('Logging out...', 'info');
+                
+                // Redirect to login page after short delay
+                setTimeout(() => {
+                    window.location.href = '../login.html';
+                }, 1000);
+            }
+        });
+    }
+});
+
+        
+    </script>
+    <script src="../authCheck.js"></script>
+    <script src="../chat.js"></script>
+    <script src="admindashboard.js"></script>
+</body>
+</html>

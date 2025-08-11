@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="facultydashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar" id="sidebar">
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- User Profile Section -->
+            <div class="user-profile">
+                <div class="avatar" id="avatarContainer">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="user-info">
+                    <h3 id="userName">Dr. John Smith</h3>
+                    <div class="user-role">Faculty</div>
+                </div>
+            </div>
+            
+            <!-- Navigation Menu -->
+            <div class="menu-label">Navigation</div>
+            <ul class="nav-menu">
+                <li class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-home"></i>
+                    <span class="nav-text">Dashboard</span>
+                </li>
+                <li class="nav-item" data-section="announcements">
+                    <i class="fas fa-bullhorn"></i>
+                    <span class="nav-text">Announcements</span>
+                    <span class="badge">2</span>
+                </li>
+                <li class="nav-item" data-section="students">
+                    <i class="fas fa-user-graduate"></i>
+                    <span class="nav-text">Students</span>
+                </li>
+                <li class="nav-item" data-section="grading">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span class="nav-text">Grading</span>
+                    <span class="badge">5</span>
+                </li>
+                <li class="nav-item" data-section="messages">
+                    <i class="fas fa-envelope"></i>
+                    <span class="nav-text">Messages</span>
+                    <span class="badge">3</span>
+                </li>
+            </ul>
+            
+            <!-- Account Section -->
+            <div class="menu-label">Account</div>
+            <ul class="nav-menu">
+                <li class="nav-item" data-section="profile">
+                    <i class="fas fa-user"></i>
+                    <span class="nav-text">Profile</span>
+                </li>
+                <li class="nav-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span class="nav-text">Settings</span>
+                </li>
+            </ul>
+            
+            <!-- Sidebar Footer -->
+            <div class="sidebar-footer">
+                <div class="mode-toggle">
+                    <label for="darkModeToggle">Dark Mode</label>
+                    <div class="switch">
+                        <input type="checkbox" id="darkModeToggle">
+                        <span class="slider"></span>
+                    </div>
+                </div>
+                <button class="logout-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="logout-text">Logout</span>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header>
+                <div class="welcome-message">Welcome, Dr. Smith</div>
+                <div class="header-actions">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" class="search-input" placeholder="Search...">
+                    </div>
+                    <div class="notification-icon" id="notificationIcon">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">3</span>
+                    </div>
+                </div>
+            </header>
+            
+            <!-- Dashboard Content -->
+            <div class="content-section active" id="dashboard">
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <div class="card-icon">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                </div>
+                                Active Courses
+                            </h3>
+                            <div class="card-options">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p>You are currently teaching 4 courses this semester. Manage your classes and track student progress.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <div class="card-icon">
+                                    <i class="fas fa-tasks"></i>
+                                </div>
+                                Pending Grades
+                            </h3>
+                            <div class="card-options">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p>You have 12 assignments to grade. Review and submit grades before the deadline.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <div class="card-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                Total Students
+                            </h3>
+                            <div class="card-options">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p>You have 127 students enrolled across all your courses. Track attendance and performance.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                <div class="card-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                Upcoming Classes
+                            </h3>
+                            <div class="card-options">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <p>Check your schedule for upcoming classes, meetings, and important academic events.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Announcements Content -->
+            <div class="content-section" id="announcements">
+                <div class="announcements-container">
+        <!-- Header -->
+        <div class="announcements-header">
+            <div class="header-left">
+                <i class="fas fa-bullhorn"></i>
+                <div>
+                    <h2>Announcements</h2>
+                    <div class="announcement-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-list"></i>
+                            <span id="totalCount">0 Total</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <span id="urgentCount">0 Urgent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="add-announcement-btn" id="addAnnouncementBtn">
+                <i class="fas fa-plus"></i>
+                Add Announcement
+            </button>
+        </div>
+
+        <!-- Content -->
+        <div class="announcements-content">
+            <!-- Filters -->
+            <div class="announcements-filters">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="urgent">Urgent</button>
+                    <button class="filter-btn" data-filter="important">Important</button>
+                    <button class="filter-btn" data-filter="general">General</button>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" class="search-input" placeholder="Search announcements..." id="searchInput">
+                </div>
+            </div>
+
+            <!-- Announcements List -->
+            <div class="announcements-list" id="announcementsList">
+                <!-- No announcements message -->
+                <div class="no-announcements" id="noAnnouncementsMessage">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>No Announcements Yet</h3>
+                    <p>Click "Add Announcement" to create your first announcement.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Announcement Modal -->
+    <div class="modal-overlay" id="announcementModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add New Announcement</h3>
+                <button class="modal-close" id="modalCloseBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="announcementForm">
+                    <div class="form-group">
+                        <label class="form-label" for="announcementTitle">Title *</label>
+                        <input type="text" class="form-input" id="announcementTitle" required placeholder="Enter announcement title">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="announcementContent">Content *</label>
+                        <textarea class="form-input form-textarea" id="announcementContent" required placeholder="Enter announcement content..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="targetAudience">Target Audience</label>
+                        <select class="form-input form-select" id="targetAudience">
+                            <option value="All Students">All Students</option>
+                            <option value="Freshman">Freshman</option>
+                            <option value="Sophomore">Sophomore</option>
+                            <option value="Junior">Junior</option>
+                            <option value="Senior">Senior</option>
+                            <option value="Graduate Students">Graduate Students</option>
+                            <option value="Faculty">Faculty</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Priority Level *</label>
+                        <div class="priority-options">
+                            <div class="priority-option">
+                                <input type="radio" class="priority-radio" id="priorityGeneral" name="priority" value="general" checked>
+                                <label class="priority-label general" for="priorityGeneral">General</label>
+                            </div>
+                            <div class="priority-option">
+                                <input type="radio" class="priority-radio" id="priorityImportant" name="priority" value="important">
+                                <label class="priority-label important" for="priorityImportant">Important</label>
+                            </div>
+                            <div class="priority-option">
+                                <input type="radio" class="priority-radio" id="priorityUrgent" name="priority" value="urgent">
+                                <label class="priority-label urgent" for="priorityUrgent">Urgent</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancelBtn">
+                    <i class="fas fa-times"></i>
+                    Cancel
+                </button>
+                <button type="submit" class="btn btn-primary" id="saveBtn" form="announcementForm">
+                    <i class="fas fa-save"></i>
+                    Save Announcement
+                </button>
+            </div>
+        </div>
+    </div>
+            </div>
+            
+            <!-- Students Content -->
+            <div class="content-section" id="students">
+                <h2>Students</h2>
+                <p>View and manage student information, enrollment, and academic records.</p>
+            </div>
+            
+            <!-- Grading Content -->
+            <div class="content-section" id="grading">
+                <h2>Grading</h2>
+                <p>Grade assignments, exams, and manage student assessments.</p>
+            </div>
+            
+            <!-- Messages Content -->
+            <div class="content-section" id="messages">
+                <h2>Messages</h2>
+                <p>Communicate with students, faculty, and administrative staff.</p>
+            </div>
+            
+            <!-- Profile Content -->
+            <div class="content-section" id="profile">
+                <h2>Profile</h2>
+                <p>Manage your personal information and account settings.</p>
+            </div>
+            
+            <!-- Settings Content -->
+            <div class="content-section" id="settings">
+                <h2>Settings</h2>
+                <p>Configure your dashboard preferences and account settings.</p>
+            </div>
+        </main>
+    </div>
+    
+    <script>
+        // Basic JavaScript structure for functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sidebar toggle
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const sidebar = document.getElementById('sidebar');
+            
+            sidebarToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('collapsed');
+            });
+            
+            // Navigation handling
+            const navItems = document.querySelectorAll('.nav-item');
+            const contentSections = document.querySelectorAll('.content-section');
+            
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const sectionName = this.getAttribute('data-section');
+                    
+                    // Remove active class from all nav items
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                    
+                    // Hide all content sections
+                    contentSections.forEach(section => section.classList.remove('active'));
+                    // Show selected content section
+                    const targetSection = document.getElementById(sectionName);
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
+                });
+            });
+            
+            // Dark mode toggle
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            darkModeToggle.addEventListener('change', function() {
+                document.body.classList.toggle('dark-mode');
+            });
+            
+            // Logout button
+            const logoutBtn = document.getElementById('logoutBtn');
+            logoutBtn.addEventListener('click', function() {
+                // Add logout functionality here
+                console.log('Logout clicked');
+            });
+            
+            // Notification icon
+            const notificationIcon = document.getElementById('notificationIcon');
+            notificationIcon.addEventListener('click', function() {
+                // Add notification panel functionality here
+                console.log('Notifications clicked');
+            });
+        });
+        
+        // Sample data and state management in Announcements section
+        let announcements = [];
+        let currentFilter = 'all';
+        let editingId = null;
+
+        // DOM elements
+        const announcementsList = document.getElementById('announcementsList');
+        const noAnnouncementsMessage = document.getElementById('noAnnouncementsMessage');
+        const addAnnouncementBtn = document.getElementById('addAnnouncementBtn');
+        const announcementModal = document.getElementById('announcementModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const announcementForm = document.getElementById('announcementForm');
+        const totalCountSpan = document.getElementById('totalCount');
+        const urgentCountSpan = document.getElementById('urgentCount');
+        const searchInput = document.getElementById('searchInput');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+
+        // Get current user information from session storage
+        function getCurrentUser() {
+            return {
+                name: sessionStorage.getItem('userName') || 'Faculty User',
+                email: sessionStorage.getItem('userEmail') || 'faculty@university.edu',
+                role: sessionStorage.getItem('userRole') || 'faculty'
+            };
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check authentication first
+            checkAuthentication();
+            
+            updateStats();
+            renderAnnouncements();
+            
+            // Add sample announcement for demonstration with current user as author
+            const currentUser = getCurrentUser();
+            announcements.push({
+                id: 1,
+                title: 'Welcome to the New Semester',
+                content: 'Welcome to the new academic semester! We\'re excited to have you all back. Please check your course schedules and make sure you have all required materials. If you have any questions, don\'t hesitate to reach out to your respective faculty members.',
+                priority: 'general',
+                targetAudience: 'All Students',
+                author: currentUser.name,
+                date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+            });
+            
+            updateStats();
+            renderAnnouncements();
+        });
+
+        // Authentication check function (from second code)
+        function checkAuthentication() {
+            const isLoggedIn = sessionStorage.getItem('loggedIn');
+            const userRole = sessionStorage.getItem('userRole');
+            
+            // Redirect to login if not authenticated
+            if (!isLoggedIn || isLoggedIn !== 'true') {
+                alert('Please log in to access the dashboard');
+                window.location.href = '../login.html'; // Adjust path as needed
+                return;
+            }
+            
+            // Check if user has faculty role
+            if (userRole && userRole.toLowerCase() !== 'faculty') {
+                alert('Access denied. This dashboard is for faculty members only.');
+                // Redirect to appropriate dashboard based on role
+                redirectToCorrectDashboard(userRole);
+                return;
+            }
+        }
+
+        // Redirect to correct dashboard based on user role (from second code)
+        function redirectToCorrectDashboard(role) {
+            const dashboardPaths = {
+                'admin': '../AdminSide/admindashboard.html',
+                'professor': '../ProfessorSide/professordashboard.html',
+                'student': '../StudentSide/studentdashboard.html'
+            };
+            
+            const redirectPath = dashboardPaths[role.toLowerCase()];
+            if (redirectPath) {
+                window.location.href = redirectPath;
+            } else {
+                window.location.href = '../login.html';
+            }
+        }
+
+        // Event listeners
+        addAnnouncementBtn.addEventListener('click', () => openModal());
+        
+        document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+        document.getElementById('cancelBtn').addEventListener('click', closeModal);
+        
+        announcementModal.addEventListener('click', (e) => {
+            if (e.target === announcementModal) closeModal();
+        });
+
+        announcementForm.addEventListener('submit', handleFormSubmit);
+
+        searchInput.addEventListener('input', handleSearch);
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                currentFilter = e.target.dataset.filter;
+                renderAnnouncements();
+            });
+        });
+
+        // Functions
+        function openModal(id = null) {
+            editingId = id;
+            
+            if (id) {
+                modalTitle.textContent = 'Edit Announcement';
+                const announcement = announcements.find(a => a.id === id);
+                if (announcement) {
+                    document.getElementById('announcementTitle').value = announcement.title;
+                    document.getElementById('announcementContent').value = announcement.content;
+                    document.getElementById('targetAudience').value = announcement.targetAudience;
+                    document.querySelector(`input[name="priority"][value="${announcement.priority}"]`).checked = true;
+                }
+            } else {
+                modalTitle.textContent = 'Add New Announcement';
+                announcementForm.reset();
+            }
+            
+            announcementModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            announcementModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            announcementForm.reset();
+            editingId = null;
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            // Get current user information
+            const currentUser = getCurrentUser();
+            
+            const formData = new FormData(announcementForm);
+            const announcementData = {
+                title: formData.get('announcementTitle') || document.getElementById('announcementTitle').value,
+                content: formData.get('announcementContent') || document.getElementById('announcementContent').value,
+                priority: formData.get('priority'),
+                targetAudience: formData.get('targetAudience') || document.getElementById('targetAudience').value,
+                author: currentUser.name, // Use current user's name instead of hardcoded value
+                date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+            };
+
+            if (editingId) {
+                const index = announcements.findIndex(a => a.id === editingId);
+                announcements[index] = { ...announcements[index], ...announcementData };
+            } else {
+                const newAnnouncement = {
+                    id: Date.now(),
+                    ...announcementData
+                };
+                announcements.unshift(newAnnouncement);
+            }
+
+            updateStats();
+            renderAnnouncements();
+            closeModal();
+        }
+
+        function deleteAnnouncement(id) {
+            if (confirm('Are you sure you want to delete this announcement?')) {
+                announcements = announcements.filter(a => a.id !== id);
+                updateStats();
+                renderAnnouncements();
+            }
+        }
+
+        function editAnnouncement(id) {
+            openModal(id);
+        }
+
+        function updateStats() {
+            const total = announcements.length;
+            const urgent = announcements.filter(a => a.priority === 'urgent').length;
+            
+            totalCountSpan.textContent = `${total} Total`;
+            urgentCountSpan.textContent = `${urgent} Urgent`;
+        }
+
+        function renderAnnouncements() {
+            let filteredAnnouncements = announcements;
+            
+            // Apply filter
+            if (currentFilter !== 'all') {
+                filteredAnnouncements = announcements.filter(a => a.priority === currentFilter);
+            }
+            
+            // Apply search
+            const searchTerm = searchInput.value.toLowerCase();
+            if (searchTerm) {
+                filteredAnnouncements = filteredAnnouncements.filter(a => 
+                    a.title.toLowerCase().includes(searchTerm) || 
+                    a.content.toLowerCase().includes(searchTerm)
+                );
+            }
+            
+            if (filteredAnnouncements.length === 0) {
+                announcementsList.innerHTML = `
+                    <div class="no-announcements">
+                        <i class="fas fa-search"></i>
+                        <h3>${announcements.length === 0 ? 'No Announcements Yet' : 'No Matching Announcements'}</h3>
+                        <p>${announcements.length === 0 ? 'Click "Add Announcement" to create your first announcement.' : 'Try adjusting your search or filter criteria.'}</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            announcementsList.innerHTML = filteredAnnouncements.map(announcement => `
+                <div class="announcement-card ${announcement.priority}" data-id="${announcement.id}">
+                    <div class="announcement-header">
+                        <div>
+                            <h3 class="announcement-title">${announcement.title}</h3>
+                            <div class="announcement-meta">
+                                <div class="meta-item">
+                                    <i class="fas fa-user"></i>
+                                    <span>${announcement.author}</span>
+                                </div>
+                                <div class="meta-item">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>${announcement.targetAudience}</span>
+                                </div>
+                                <span class="priority-badge priority-${announcement.priority}">${announcement.priority}</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="card-action-btn edit" onclick="editAnnouncement(${announcement.id})">
+                                <i class="fas fa-edit"></i>
+                                Edit
+                            </button>
+                            <button class="card-action-btn delete" onclick="deleteAnnouncement(${announcement.id})">
+                                <i class="fas fa-trash"></i>
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                    <div class="announcement-content">
+                        ${announcement.content}
+                    </div>
+                    <div class="announcement-footer">
+                        <div class="announcement-date">
+                            <i class="fas fa-calendar"></i>
+                            <span>${announcement.date}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function handleSearch() {
+            renderAnnouncements();
+        }
+
+        // Additional utility functions for user management
+        function displayCurrentUserInfo() {
+            const currentUser = getCurrentUser();
+            console.log('Current User:', currentUser);
+            return currentUser;
+        }
+
+        // Function to update user info if needed
+        function updateUserInfo(newUserData) {
+            if (newUserData.name) sessionStorage.setItem('userName', newUserData.name);
+            if (newUserData.email) sessionStorage.setItem('userEmail', newUserData.email);
+            if (newUserData.role) sessionStorage.setItem('userRole', newUserData.role);
+        }
+
+        // Make functions globally available
+        window.editAnnouncement = editAnnouncement;
+        window.deleteAnnouncement = deleteAnnouncement;
+        window.getCurrentUser = getCurrentUser;
+        window.displayCurrentUserInfo = displayCurrentUserInfo;
+        window.updateUserInfo = updateUserInfo;
+
+        
+    </script>
+    <script src="facultydashboard.js"></script>
+</body>
+</html>
